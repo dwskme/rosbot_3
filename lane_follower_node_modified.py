@@ -1,5 +1,3 @@
-# lane_follower_node.py - Shows ONLY lanes, blacks out everything else
-
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
@@ -9,7 +7,6 @@ import torch
 import numpy as np
 import cv2
 import time
-import os
 from rosbot_lane_follower_v2.unet_model import UNet
 from rosbot_lane_follower_v2.transforms import get_transforms
 from rosbot_lane_follower_v2.utils import find_lane_center
@@ -27,7 +24,7 @@ class LaneFollowerNode(Node):
             "/home/wheeltec/ros_ws3/src/rosbot_lane_follower_v2/models/lane_unet.pth"
         ).get_parameter_value().string_value
 
-        self.model = UNet(n_channels=3, n_classes=1).to(self.device)
+        self.model = UNet().to(self.device)
         self.model.load_state_dict(torch.load(model_path, map_location=self.device))
         self.model.eval()
 
@@ -73,7 +70,7 @@ class LaneFollowerNode(Node):
         h, w = img.shape[:2]
         img = img[:, 20:]  # offset camera fix: crop 20px from left
 
-        # Apply model
+        # Resize and transform
         input_img = cv2.resize(img, (256, 256))
         input_tensor = self.transforms(image=input_img)["image"].unsqueeze(0).to(self.device)
 
