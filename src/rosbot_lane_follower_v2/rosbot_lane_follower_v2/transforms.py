@@ -1,33 +1,30 @@
+#!/usr/bin/env python
 import cv2
-from albumentations import (
-    Compose,
-    HorizontalFlip,
-    MotionBlur,
-    Normalize,
-    RandomBrightnessContrast,
-    Resize,
-)
-from albumentations.pytorch import ToTensorV2
+import numpy as np
+from torchvision import transforms
 
+def apply_filters(image):
+    """
+    Apply the exact Gaussian blur (5×5 kernel, σ=1.0) you used at training time.
+    """
+    return cv2.GaussianBlur(image, (5, 5), sigmaX=1.0)
 
-def apply_filters(img):
-    # Equalize Y in YCrCb
-    ycrcb = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
-    ycrcb[:, :, 0] = cv2.equalizeHist(ycrcb[:, :, 0])
-    img = cv2.cvtColor(ycrcb, cv2.COLOR_YCrCb2BGR)
-    # Gaussian blur
-    img = cv2.GaussianBlur(img, (5, 5), 0)
-    return img
-
-
-def get_transforms():
-    return Compose(
-        [
-            #HorizontalFlip(p=0.5),
-            MotionBlur(blur_limit=5, p=0.2),
-            #RandomBrightnessContrast(p=0.5),
-            Resize(256, 256),
-            Normalize(),
-            ToTensorV2(),
-        ]
-    )
+def get_transforms(training=True):
+    """
+    Return a torchvision Compose that matches your train‑time normalization.
+    """
+    if not training:
+        return transforms.Compose([
+            transforms.ToPILImage(),
+            transforms.Resize((256, 256)),        # if you resized
+            transforms.ToTensor(),
+            transforms.Normalize(
+                mean=[0.485, 0.456, 0.406],
+                std =[0.229, 0.224, 0.225]
+            ),
+        ])
+    else:
+        # your existing training‑time augmentations...
+        return transforms.Compose([
+            # e.g. ColorJitter, RandomCrop, etc.
+        ])
