@@ -1,0 +1,6 @@
+setuptools
+torch
+torchvision
+opencv-python
+albumentations
+numpy

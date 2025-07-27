@@ -1,0 +1,49 @@
+running develop
+Removing /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot-lane-follower-v2.egg-link (link to .)
+running egg_info
+writing ../../build/rosbot_lane_follower_v2/rosbot_lane_follower_v2.egg-info/PKG-INFO
+writing dependency_links to ../../build/rosbot_lane_follower_v2/rosbot_lane_follower_v2.egg-info/dependency_links.txt
+writing entry points to ../../build/rosbot_lane_follower_v2/rosbot_lane_follower_v2.egg-info/entry_points.txt
+writing requirements to ../../build/rosbot_lane_follower_v2/rosbot_lane_follower_v2.egg-info/requires.txt
+writing top-level names to ../../build/rosbot_lane_follower_v2/rosbot_lane_follower_v2.egg-info/top_level.txt
+reading manifest file '../../build/rosbot_lane_follower_v2/rosbot_lane_follower_v2.egg-info/SOURCES.txt'
+writing manifest file '../../build/rosbot_lane_follower_v2/rosbot_lane_follower_v2.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build
+creating /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib
+creating /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2
+copying rosbot_lane_follower_v2/unet_model.py -> /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2
+copying rosbot_lane_follower_v2/__init__.py -> /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2
+copying rosbot_lane_follower_v2/postprocess.py -> /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2
+copying rosbot_lane_follower_v2/steering_controller_node.py -> /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2
+copying rosbot_lane_follower_v2/transforms.py -> /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2
+copying rosbot_lane_follower_v2/lane_follower_node.py -> /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2
+copying rosbot_lane_follower_v2/utils.py -> /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2
+running install
+running install_lib
+creating /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2
+copying /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2/unet_model.py -> /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2
+copying /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2/__init__.py -> /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2
+copying /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2/postprocess.py -> /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2
+copying /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2/steering_controller_node.py -> /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2
+copying /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2/transforms.py -> /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2
+copying /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2/lane_follower_node.py -> /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2
+copying /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2/utils.py -> /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2
+byte-compiling /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2/unet_model.py to unet_model.cpython-310.pyc
+byte-compiling /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2/postprocess.py to postprocess.cpython-310.pyc
+byte-compiling /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2/steering_controller_node.py to steering_controller_node.cpython-310.pyc
+byte-compiling /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2/transforms.py to transforms.cpython-310.pyc
+byte-compiling /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2/lane_follower_node.py to lane_follower_node.cpython-310.pyc
+byte-compiling /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2/utils.py to utils.cpython-310.pyc
+running install_data
+copying resource/rosbot_lane_follower_v2 -> /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/share/ament_index/resource_index/packages
+copying package.xml -> /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/share/rosbot_lane_follower_v2
+copying launch/lane_follower.launch.py -> /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/share/rosbot_lane_follower_v2/launch
+running install_egg_info
+Copying ../../build/rosbot_lane_follower_v2/rosbot_lane_follower_v2.egg-info to /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2-0.1.0-py3.10.egg-info
+running install_scripts
+Installing lane_follower_node script to /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/rosbot_lane_follower_v2
+Installing steering_controller_node script to /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/rosbot_lane_follower_v2
+writing list of installed files to '/home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/install.log'

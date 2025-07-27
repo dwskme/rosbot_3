@@ -1,0 +1,23 @@
+rm -rf build/ install/ log/
+
+colcon build --packages-select rosbot_lane_follower_v2 --symlink-install
+
+source install/setup.bash
+
+ros2 launch rosbot_lane_follower_v2 lane_follower.launch.py use_hough:=false
+
+ros2 topic list
+
+ssh -Y wheeltec@198.168.0.100
+dongguan
+
+ros2 pkg list | grep rosbot_lane_follower
+
+rqt_image_view
+
+ros2 run rqt_plot rqt_plot
+
+ros2 run rqt_image_view rqt_image_view
+
+ros2 launch turn_on_wheeltec_robot turn_on_wheeltec_robot.launch.py
+

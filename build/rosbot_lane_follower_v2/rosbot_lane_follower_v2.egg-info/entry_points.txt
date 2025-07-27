@@ -1,0 +1,3 @@
+[console_scripts]
+lane_follower_node = rosbot_lane_follower_v2.lane_follower_node:main
+steering_controller_node = rosbot_lane_follower_v2.steering_controller_node:main

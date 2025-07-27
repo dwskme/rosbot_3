@@ -1,0 +1,40 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+
+Displays:
+  - Name: Camera
+    Type: rviz_default_plugins/Image
+    Image Topic: /lane_overlay
+    Transport Hint: raw
+    Enabled: true
+
+  - Name: Lane Center
+    Type: rviz_default_plugins/Marker
+    Marker Topic: /lane_center_marker
+    Enabled: true
+
+  - Name: Odometry
+    Type: rviz_default_plugins/Odometry
+    Topic: /odom
+    Enabled: true
+
+  - Name: Raw Camera View
+    Type: rviz_default_plugins/Image
+    Image Topic: /camera/color/image_raw
+    Transport Hint: raw
+    Enabled: true
+
+Global Options:
+  Fixed Frame: base_link
+  Frame Rate: 30
+
+ViewManager:
+  Current View: TopDownOrtho
+  Views:
+    - Class: rviz_default_plugins/TopDownOrtho
+      Name: TopDownOrtho
+      Value: {}
+

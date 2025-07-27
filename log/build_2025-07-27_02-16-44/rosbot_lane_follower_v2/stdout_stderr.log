@@ -1,0 +1,26 @@
+running develop
+running egg_info
+creating rosbot_lane_follower_v2.egg-info
+writing rosbot_lane_follower_v2.egg-info/PKG-INFO
+writing dependency_links to rosbot_lane_follower_v2.egg-info/dependency_links.txt
+writing entry points to rosbot_lane_follower_v2.egg-info/entry_points.txt
+writing requirements to rosbot_lane_follower_v2.egg-info/requires.txt
+writing top-level names to rosbot_lane_follower_v2.egg-info/top_level.txt
+writing manifest file 'rosbot_lane_follower_v2.egg-info/SOURCES.txt'
+ERROR setuptools_scm._file_finders.git listing git files failed - pretending there aren't any
+reading manifest file 'rosbot_lane_follower_v2.egg-info/SOURCES.txt'
+writing manifest file 'rosbot_lane_follower_v2.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot-lane-follower-v2.egg-link (link to .)
+Installing lane_follower_node script to /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/rosbot_lane_follower_v2
+Installing steering_controller_node script to /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/rosbot_lane_follower_v2
+
+Installed /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2
+running symlink_data
+creating /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/share/ament_index
+creating /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/share/ament_index/resource_index
+creating /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/share/ament_index/resource_index/packages
+symbolically linking /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/resource/rosbot_lane_follower_v2 -> /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/share/ament_index/resource_index/packages
+symbolically linking /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/package.xml -> /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/share/rosbot_lane_follower_v2
+creating /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/share/rosbot_lane_follower_v2/launch
+symbolically linking /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/launch/lane_follower.launch.py -> /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/share/rosbot_lane_follower_v2/launch

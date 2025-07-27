@@ -1,0 +1,29 @@
+[2.621s] Invoking command in '/home/wheeltec/ros_ws3/src/rosbot_lane_follower_v2': PYTHONPATH=/home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rosbot_lane_follower_v2 build --build-base /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build install --record /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/install.log --single-version-externally-managed install_data
+[3.665s] running egg_info
+[3.704s] writing ../../build/rosbot_lane_follower_v2/rosbot_lane_follower_v2.egg-info/PKG-INFO
+[3.707s] writing dependency_links to ../../build/rosbot_lane_follower_v2/rosbot_lane_follower_v2.egg-info/dependency_links.txt
+[3.708s] writing entry points to ../../build/rosbot_lane_follower_v2/rosbot_lane_follower_v2.egg-info/entry_points.txt
+[3.708s] writing requirements to ../../build/rosbot_lane_follower_v2/rosbot_lane_follower_v2.egg-info/requires.txt
+[3.708s] writing top-level names to ../../build/rosbot_lane_follower_v2/rosbot_lane_follower_v2.egg-info/top_level.txt
+[3.880s] ERROR setuptools_scm._file_finders.git listing git files failed - pretending there aren't any
+[3.883s] reading manifest file '../../build/rosbot_lane_follower_v2/rosbot_lane_follower_v2.egg-info/SOURCES.txt'
+[3.885s] writing manifest file '../../build/rosbot_lane_follower_v2/rosbot_lane_follower_v2.egg-info/SOURCES.txt'
+[3.886s] running build
+[3.886s] running build_py
+[3.887s] copying rosbot_lane_follower_v2/transforms.py -> /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2
+[3.887s] copying rosbot_lane_follower_v2/lane_follower_node.py -> /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2
+[3.888s] running install
+[3.900s] running install_lib
+[3.940s] copying /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2/transforms.py -> /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2
+[3.940s] copying /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build/lib/rosbot_lane_follower_v2/lane_follower_node.py -> /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2
+[3.942s] byte-compiling /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2/transforms.py to transforms.cpython-310.pyc
+[3.943s] byte-compiling /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2/lane_follower_node.py to lane_follower_node.cpython-310.pyc
+[3.945s] running install_data
+[3.946s] running install_egg_info
+[3.986s] removing '/home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2-0.1.0-py3.10.egg-info' (and everything under it)
+[3.986s] Copying ../../build/rosbot_lane_follower_v2/rosbot_lane_follower_v2.egg-info to /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages/rosbot_lane_follower_v2-0.1.0-py3.10.egg-info
+[3.988s] running install_scripts
+[4.140s] Installing lane_follower_node script to /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/rosbot_lane_follower_v2
+[4.140s] Installing steering_controller_node script to /home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/rosbot_lane_follower_v2
+[4.141s] writing list of installed files to '/home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/install.log'
+[4.266s] Invoked command in '/home/wheeltec/ros_ws3/src/rosbot_lane_follower_v2' returned '0': PYTHONPATH=/home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wheeltec/ros_ws3/install/rosbot_lane_follower_v2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rosbot_lane_follower_v2 build --build-base /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/build install --record /home/wheeltec/ros_ws3/build/rosbot_lane_follower_v2/install.log --single-version-externally-managed install_data
