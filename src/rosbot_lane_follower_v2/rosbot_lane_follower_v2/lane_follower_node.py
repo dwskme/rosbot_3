@@ -2,8 +2,6 @@
 import time
 import threading
 
-import cv2
-import numpy as np
 import torch
 import rclpy
 from rclpy.node import Node
@@ -62,18 +60,16 @@ class LaneFollowerNode(Node):
         self.last_proc_time = time.time()
         self.proc_fps       = 0.0
 
-        if self.debug:
-            cv2.namedWindow("LaneFollowerDebug", cv2.WINDOW_NORMAL)
-            cv2.startWindowThread()
-
         # ─── WORKER TIMER ───────────────────────────────────────────────────
         self.create_timer(1.0/prate, self.worker)
+
+        self.get_logger().info("LaneFollowerNode initialized without GUI.")
 
     def image_cb(self, msg: Image):
         now = time.time()
         dt  = now - self.last_cam_time
-        if dt>0:
-            self.cam_fps = 1.0/dt
+        if dt > 0:
+            self.cam_fps = 1.0 / dt
         self.last_cam_time = now
 
         try:
@@ -112,7 +108,7 @@ class LaneFollowerNode(Node):
 
         # 4) Threshold → binary mask
         _, mask = cv2.threshold(pred, 0.5, 255, cv2.THRESH_BINARY)
-        mask = mask.astype(np.uint8)
+        mask = mask.astype('uint8')
 
         # 5) Compute lane center x
         cx = find_lane_center(mask) + x1
@@ -123,21 +119,15 @@ class LaneFollowerNode(Node):
         # 7) Processing FPS
         now = time.time()
         dt  = now - self.last_proc_time
-        if dt>0:
+        if dt > 0:
             self.proc_fps = 1.0 / dt
         self.last_proc_time = now
 
-        # 8) Debug overlay
+        # 8) Debug logging
         if self.debug:
-            vis = frame.copy()
-            cv2.rectangle(vis, (x1, y1), (x2, h), (0,255,0), 2)
-            cv2.circle(vis, (int(cx), h-5), 5, (0,0,255), -1)
-            cv2.putText(vis, f"CamFPS: {self.cam_fps:.1f}", (10,30),
-                        cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2)
-            cv2.putText(vis, f"ProcFPS: {self.proc_fps:.1f}", (10,70),
-                        cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2)
-            cv2.imshow("LaneFollowerDebug", vis)
-            cv2.waitKey(1)
+            self.get_logger().debug(
+                f"CamFPS: {self.cam_fps:.1f} Hz, ProcFPS: {self.proc_fps:.1f} Hz, cx: {cx}"
+            )
 
 def main(args=None):
     rclpy.init(args=args)
