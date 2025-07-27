@@ -1,46 +1,66 @@
-#!/usr/bin/env python
-import rospy
+#!/usr/bin/env python3
+import rclpy
+from rclpy.node import Node
 from std_msgs.msg import Float32
 from nav_msgs.msg import Odometry
 from ackermann_msgs.msg import AckermannDriveStamped
 from utils import PID
 
-class SteeringControllerNode:
+class SteeringControllerNode(Node):
     def __init__(self):
-        rospy.init_node('steering_controller_node')
-        kp = rospy.get_param('~kp', 0.5)
-        ki = rospy.get_param('~ki', 0.0)
-        kd = rospy.get_param('~kd', 0.1)
-        max_steer = rospy.get_param('~max_steer_angle', 0.34)
-        self.pid = PID(kp, ki, kd, output_limits=(-max_steer, max_steer))
+        super().__init__('steering_controller_node')
 
-        self.camera_offset = rospy.get_param('~camera_offset', 0.0)
-        self.frame_width   = rospy.get_param('~frame_width', 640)
+        # parameters
+        self.declare_parameter('kp', 0.5)
+        self.declare_parameter('ki', 0.0)
+        self.declare_parameter('kd', 0.1)
+        self.declare_parameter('max_steer_angle', 0.34)
+        self.declare_parameter('camera_offset', 0.0)
+        self.declare_parameter('frame_width', 640.0)
+
+        kp = self.get_parameter('kp').value
+        ki = self.get_parameter('ki').value
+        kd = self.get_parameter('kd').value
+        max_s = self.get_parameter('max_steer_angle').value
+        self.camera_offset = self.get_parameter('camera_offset').value
+        self.frame_width   = self.get_parameter('frame_width').value
+
+        self.pid = PID(kp, ki, kd, output_limits=(-max_s, max_s))
         self.current_speed = 0.0
 
-        rospy.Subscriber('lane_center', Float32, self.lane_cb, queue_size=1)
-        rospy.Subscriber('odom',       Odometry,   self.odom_cb)
-        self.steer_pub = rospy.Publisher('steering_cmd',
-                                         AckermannDriveStamped,
-                                         queue_size=1)
-        rospy.spin()
+        # subs & pub
+        self.create_subscription(
+            Float32, 'lane_center',
+            self.lane_cb, qos_profile=1
+        )
+        self.create_subscription(
+            Odometry, 'odom',
+            self.odom_cb, qos_profile=1
+        )
+        self.steer_pub = self.create_publisher(
+            AckermannDriveStamped, 'steering_cmd', qos_profile=1
+        )
 
-    def odom_cb(self, msg):
+    def odom_cb(self, msg: Odometry):
         self.current_speed = msg.twist.twist.linear.x
 
-    def lane_cb(self, msg):
+    def lane_cb(self, msg: Float32):
         cx = msg.data
         error = (cx - (self.frame_width/2.0)) - self.camera_offset
         steer = self.pid.update(error)
 
         cmd = AckermannDriveStamped()
-        cmd.header.stamp = rospy.Time.now()
+        cmd.header.stamp = self.get_clock().now().to_msg()
         cmd.drive.steering_angle = steer
         cmd.drive.speed = self.current_speed
         self.steer_pub.publish(cmd)
 
+def main(args=None):
+    rclpy.init(args=args)
+    node = SteeringControllerNode()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
 if __name__=='__main__':
-    try:
-        SteeringControllerNode()
-    except rospy.ROSInterruptException:
-        pass
+    main()
