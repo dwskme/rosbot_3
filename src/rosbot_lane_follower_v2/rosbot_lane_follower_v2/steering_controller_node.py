@@ -19,7 +19,6 @@ class SteeringControllerNode(Node):
         self.declare_parameter('camera_offset',   0.0)
         self.declare_parameter('frame_width',   640.0)
 
-        # fetch them
         kp    = self.get_parameter('kp').value
         ki    = self.get_parameter('ki').value
         kd    = self.get_parameter('kd').value
@@ -28,8 +27,11 @@ class SteeringControllerNode(Node):
         self.frame_width   = self.get_parameter('frame_width').value
 
         # ─── PID CONTROLLER ──────────────────────────────────────────────────
-        # pass output_limits as a tuple (min, max)
-        self.pid = PID(kp, ki, kd, (-max_s, max_s))
+        # Only pass kp, ki, kd here
+        self.pid = PID(kp, ki, kd)
+        # Manually clamp output
+        self.pid.min_output = -max_s
+        self.pid.max_output =  max_s
         self.current_speed = 0.0
 
         # ─── ROS SUBSCRIPTIONS & PUBLISHER ──────────────────────────────────
@@ -52,26 +54,19 @@ class SteeringControllerNode(Node):
         )
 
     def odom_cb(self, msg: Odometry):
-        # update current forward speed
         self.current_speed = msg.twist.twist.linear.x
 
     def lane_cb(self, msg: Float32):
-        # receive lane center x in pixels
         cx = msg.data
-
-        # compute pixel error around image center, then apply camera offset
+        # compute pixel error around center + camera offset
         error = (cx - (self.frame_width / 2.0)) - self.camera_offset
 
-        # run the PID
         steer = self.pid.update(error)
 
-        # assemble Ackermann cmd
         cmd = AckermannDriveStamped()
         cmd.header.stamp = self.get_clock().now().to_msg()
         cmd.drive.steering_angle = steer
         cmd.drive.speed          = self.current_speed
-
-        # publish it
         self.steer_pub.publish(cmd)
 
 def main(args=None):
